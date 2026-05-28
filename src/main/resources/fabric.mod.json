@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "aortic",
+  "version": "${version}",
+  "name": "Aortic",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "Me!"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/aortic/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.peak.aortic.core.Aortic"
+    ],
+    "fabric-datagen": [
+      "com.peak.aortic.datagen.AorticDataGen"
+    ],
+    "cardinal-components": [
+      "com.peak.aortic.core.cca.AorticCCA"
+    ]
+  },
+  "mixins": [
+    "aortic.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+
+  "custom": {
+    "cardinal-components": [
+      "aortic:player_blood"
+    ]
+  }
+}
