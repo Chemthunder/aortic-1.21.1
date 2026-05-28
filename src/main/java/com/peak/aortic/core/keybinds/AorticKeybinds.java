@@ -31,7 +31,7 @@ public class AorticKeybinds {
                 try {
 
                 } catch (Exception e) {
-                    Aortic.LOGGER.error("Failed to send openCultistScreen Payload");
+                    Aortic.LOGGER.error("Failed to send TriggerAbilityPayload");
                 }
             }
         });

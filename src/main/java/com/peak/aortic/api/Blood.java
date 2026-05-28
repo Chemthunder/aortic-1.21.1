@@ -27,6 +27,8 @@ public class Blood {
 
     public void passive(World world, PlayerEntity source) {}
 
+    public void altPassive(World world, PlayerEntity source) {}
+
     public Identifier getId() {
         return AorticRegistries.BLOOD.getId(this);
     }

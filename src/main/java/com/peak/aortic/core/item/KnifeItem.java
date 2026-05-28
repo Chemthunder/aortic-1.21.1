@@ -39,6 +39,7 @@ public class KnifeItem extends Item implements ModelVaryingItem {
         for (Blood blood : AorticRegistries.BLOOD) {
             if (blood.getType() == entity.getType()) {
                 toApply = blood;
+                break;
             } else {
                 if (user.getWorld().isClient()) {
                     user.sendMessage(Text.of("skiped"));

@@ -21,8 +21,13 @@ public abstract class ArgumentTypesMixin {
         throw new AssertionError();
     }
 
-    @Inject(method = "register(Lnet/minecraft/registry/Registry;)Lnet/minecraft/command/argument/serialize/ArgumentSerializer;", at = @At("TAIL"))
-    private static void renegade$addArguments(Registry<ArgumentSerializer<?, ?>> registry, CallbackInfoReturnable<ArgumentSerializer<?, ?>> cir) {
-        register(registry, "renegade:layer", BloodArgumentType.class, ConstantArgumentSerializer.of(BloodArgumentType::blood));
+    @Inject(
+        method = "register(Lnet/minecraft/registry/Registry;)Lnet/minecraft/command/argument/serialize/ArgumentSerializer;",
+        at = @At(
+            value = "TAIL"
+        )
+    )
+    private static void aortic$addArguments(Registry<ArgumentSerializer<?, ?>> registry, CallbackInfoReturnable<ArgumentSerializer<?, ?>> cir) {
+        register(registry, "aortic:blood", BloodArgumentType.class, ConstantArgumentSerializer.of(BloodArgumentType::blood));
     }
 }

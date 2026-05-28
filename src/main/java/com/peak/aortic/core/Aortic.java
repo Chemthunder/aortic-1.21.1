@@ -9,6 +9,9 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * @author Chemthunder
+ */
 public class Aortic implements ModInitializer {
 	public static final String MOD_ID = "aortic";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);

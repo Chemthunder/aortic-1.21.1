@@ -13,6 +13,9 @@ import net.minecraft.registry.RegistryWrapper;
 import java.util.Arrays;
 import java.util.concurrent.CompletableFuture;
 
+/**
+ * @author Chemthunder
+ */
 public class AorticDataGen implements DataGeneratorEntrypoint {
 	public static final DataInitializer DATA = new DataInitializer(Aortic.MOD_ID, Arrays.asList(
 

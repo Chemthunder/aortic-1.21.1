@@ -19,5 +19,12 @@ public class AorticLangGen extends FabricLanguageProvider {
     public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
         AorticItems.ITEMS.registerLang(registryLookup, translationBuilder);
         AorticBloodTypes.TYPES.registerLang(registryLookup, translationBuilder);
+
+        translationBuilder.add("category.aortic", "Aortic");
+        translationBuilder.add("key.aortic.trigger", "Use Blood Ability");
+    }
+
+    public String getName() {
+        return "Aortic EN_US";
     }
 }

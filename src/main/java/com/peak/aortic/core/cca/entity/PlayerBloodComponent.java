@@ -32,6 +32,7 @@ public class PlayerBloodComponent implements AutoSyncedComponent, CommonTickingC
 
     public void tick() {
         currentBlood.passive(player.getWorld(), player);
+        currentBlood.altPassive(player.getWorld(), player);
     }
 
     public void sync() {
@@ -40,7 +41,11 @@ public class PlayerBloodComponent implements AutoSyncedComponent, CommonTickingC
 
     public void readFromNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup wrapperLookup) {
         if (nbt.contains("Blood")) {
-            this.currentBlood = AorticRegistries.BLOOD.get(Identifier.of(nbt.getString("Blood")));
+            this.currentBlood = AorticRegistries.BLOOD.get(
+                Identifier.of(
+                    nbt.getString("Blood")
+                )
+            );
         } else {
             this.currentBlood = AorticBloodTypes.BASE;
         }
@@ -49,7 +54,10 @@ public class PlayerBloodComponent implements AutoSyncedComponent, CommonTickingC
     public void writeToNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup wrapperLookup) {
         if (this.currentBlood != null) {
             Identifier identifier = AorticRegistries.BLOOD.getId(this.currentBlood);
-            nbt.putString("Blood", identifier != null ? identifier.toString() : AorticBloodTypes.BASE.getId().toString());
+            nbt.putString(
+                "Blood",
+                identifier != null ? identifier.toString() : AorticBloodTypes.BASE.getId().toString()
+            );
         }
     }
 
