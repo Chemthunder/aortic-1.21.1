@@ -3,7 +3,6 @@ package com.peak.aortic.core.item;
 import com.peak.aortic.api.Blood;
 import com.peak.aortic.core.Aortic;
 import com.peak.aortic.core.cca.entity.PlayerBloodComponent;
-import com.peak.aortic.core.index.AorticComponentTypes;
 import com.peak.aortic.core.index.data.AorticDamageTypes;
 import net.acoyt.acornlib.api.item.ModelVaryingItem;
 import net.minecraft.client.render.model.json.ModelTransformationMode;
@@ -11,7 +10,6 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
@@ -20,7 +18,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 /**
  * @author Chemthunder

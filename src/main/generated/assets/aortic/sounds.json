@@ -1,0 +1,8 @@
+{
+  "item.harvest": {
+    "sounds": [
+      "aortic:item/harvest"
+    ],
+    "subtitle": "subtitles.aortic.item.harvest"
+  }
+}
