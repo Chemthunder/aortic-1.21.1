@@ -11,11 +11,17 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
  */
 public interface AorticNetworking {
     static void init() {
-        PayloadTypeRegistry.playC2S().register(TriggerAbilityPayload.ID, TriggerAbilityPayload.CODEC);
+        PayloadTypeRegistry.playC2S().register(
+            TriggerAbilityPayload.ID,
+            TriggerAbilityPayload.CODEC
+        );
     }
 
     static void registerC2SPackets() {
-        ServerPlayNetworking.registerGlobalReceiver(TriggerAbilityPayload.ID, new TriggerAbilityPayload.Receiver());
+        ServerPlayNetworking.registerGlobalReceiver(
+            TriggerAbilityPayload.ID,
+            new TriggerAbilityPayload.Receiver()
+        );
     }
 
     @Environment(EnvType.CLIENT)

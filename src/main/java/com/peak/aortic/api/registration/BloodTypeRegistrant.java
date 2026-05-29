@@ -17,7 +17,10 @@ public class BloodTypeRegistrant extends RegistrantBase<Blood> {
 
     public void registerLang(RegistryWrapper.WrapperLookup wrapperLookup, FabricLanguageProvider.TranslationBuilder translationBuilder) {
         this.toRegister.forEach(blood -> {
-            translationBuilder.add("blood." + blood.getId().getNamespace() + "." + blood.getId().getPath(), MiscUtils.formatString(blood.getId().getPath()) + " Blood");
+            translationBuilder.add(
+                "blood." + blood.getId().getNamespace() + "." + blood.getId().getPath(),
+                MiscUtils.formatString(blood.getId().getPath()) + " Blood"
+            );
         });
     }
 }

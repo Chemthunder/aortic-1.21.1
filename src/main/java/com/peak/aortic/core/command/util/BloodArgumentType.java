@@ -11,6 +11,7 @@ import net.minecraft.command.CommandRegistryAccess;
 import java.util.concurrent.CompletableFuture;
 
 /**
+ * @author Chemthunder
  * @author AcoYT
  */
 public class BloodArgumentType implements ArgumentType<BloodArgument> {
@@ -30,7 +31,10 @@ public class BloodArgumentType implements ArgumentType<BloodArgument> {
     }
 
     public static <S> BloodArgument getBloodArgument(CommandContext<S> context, String name) {
-        return context.getArgument(name, BloodArgument.class);
+        return context.getArgument(
+            name,
+            BloodArgument.class
+        );
     }
 
     public <S> CompletableFuture<Suggestions> listSuggestions(CommandContext<S> context, SuggestionsBuilder builder) {

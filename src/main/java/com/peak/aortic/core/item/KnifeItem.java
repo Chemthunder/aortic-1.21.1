@@ -31,8 +31,8 @@ public class KnifeItem extends Item implements ModelVaryingItem {
         World world = user.getWorld();
 
         if (!user.getItemCooldownManager().isCoolingDown(this)) {
-
             Blood toApply = Blood.getBloodFromTarget(entity);
+            
             if (toApply != null) {
                 PlayerBloodComponent.KEY.get(user).setCurrentBlood(toApply);
 
@@ -53,7 +53,10 @@ public class KnifeItem extends Item implements ModelVaryingItem {
                 }
 
                 if (!user.isCreative()) {
-                    user.getItemCooldownManager().set(this, 60);
+                    user.getItemCooldownManager().set(
+                        this,
+                        60
+                    );
                 }
             }
         }

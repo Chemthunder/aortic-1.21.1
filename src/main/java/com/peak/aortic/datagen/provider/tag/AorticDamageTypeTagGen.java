@@ -15,7 +15,11 @@ import java.util.concurrent.CompletableFuture;
  */
 public class AorticDamageTypeTagGen extends FabricTagProvider<DamageType> {
     public AorticDamageTypeTagGen(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-        super(output, RegistryKeys.DAMAGE_TYPE, registriesFuture);
+        super(
+            output,
+            RegistryKeys.DAMAGE_TYPE,
+            registriesFuture
+        );
     }
 
     protected void configure(RegistryWrapper.WrapperLookup lookup) {
@@ -26,5 +30,9 @@ public class AorticDamageTypeTagGen extends FabricTagProvider<DamageType> {
         this.getOrCreateTagBuilder(DamageTypeTags.BYPASSES_ARMOR)
                 .add(AorticDamageTypes.HYDROPHOBIA)
                 .setReplace(false);
+    }
+
+    public String getName() {
+        return "Aortic Damage Type Tags";
     }
 }

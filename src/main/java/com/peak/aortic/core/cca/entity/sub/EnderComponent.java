@@ -38,9 +38,20 @@ public class EnderComponent implements AutoSyncedComponent {
     }
 
     public void writeToNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup wrapperLookup) {
-        nbt.putInt("X", this.x);
-        nbt.putInt("Y", this.y);
-        nbt.putInt("Z", this.z);
+        nbt.putInt(
+            "X",
+            this.x
+        );
+        
+        nbt.putInt(
+            "Y",
+            this.y
+        );
+
+        nbt.putInt(
+            "Z",
+            this.z
+        );
     }
 
     public BlockPos getAsPosition() {

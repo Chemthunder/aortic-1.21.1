@@ -28,6 +28,11 @@ public abstract class ArgumentTypesMixin {
         )
     )
     private static void aortic$addArguments(Registry<ArgumentSerializer<?, ?>> registry, CallbackInfoReturnable<ArgumentSerializer<?, ?>> cir) {
-        register(registry, "aortic:blood", BloodArgumentType.class, ConstantArgumentSerializer.of(BloodArgumentType::blood));
+        register(
+            registry,
+            "aortic:blood",
+            BloodArgumentType.class,
+            ConstantArgumentSerializer.of(BloodArgumentType::blood)
+        );
     }
 }

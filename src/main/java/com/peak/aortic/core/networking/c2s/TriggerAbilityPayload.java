@@ -27,7 +27,10 @@ public record TriggerAbilityPayload() implements CustomPayload {
     public static class Receiver implements ServerPlayNetworking.PlayPayloadHandler<TriggerAbilityPayload> {
         public void receive(TriggerAbilityPayload payload, ServerPlayNetworking.Context context) {
             PlayerEntity player = context.player();
-            PlayerBloodComponent.KEY.get(player).getCurrentBlood().trigger(player.getWorld(), player);
+            PlayerBloodComponent.KEY.get(player).getCurrentBlood().trigger(
+                player.getWorld(),
+                player
+            );
         }
     }
 }

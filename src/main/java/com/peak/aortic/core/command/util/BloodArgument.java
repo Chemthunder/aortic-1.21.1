@@ -4,6 +4,7 @@ import com.peak.aortic.api.Blood;
 import net.minecraft.registry.entry.RegistryEntry;
 
 /**
+ * @author Chemthunder
  * @author AcoYT
  */
 public class BloodArgument {

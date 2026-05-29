@@ -15,23 +15,56 @@ import java.util.concurrent.CompletableFuture;
  */
 public class AorticLangGen extends FabricLanguageProvider {
     public AorticLangGen(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
-        super(dataOutput, registryLookup);
+        super(
+            dataOutput,
+            registryLookup
+        );
     }
 
     public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
-        AorticItems.ITEMS.registerLang(registryLookup, translationBuilder);
-        AorticBloodTypes.TYPES.registerLang(registryLookup, translationBuilder);
+        AorticItems.ITEMS.registerLang(
+            registryLookup,
+            translationBuilder
+        );
 
-        translationBuilder.add("category.aortic", "Aortic");
-        translationBuilder.add("key.aortic.trigger", "Use Blood Ability");
-
-        translationBuilder.add("item.aortic.knife.refuse.bloodied", "This Knife is bloodied, wash it to use it!");
-
-        translationBuilder.add("subtitles.aortic.item.harvest", "Blood is harvested");
-
-        translationBuilder.add("blood.aortic.enderman.set_pos", "Set waypoint to %s %s %s");
+        AorticBloodTypes.TYPES.registerLang(
+            registryLookup,
+            translationBuilder
+        );
 
         AorticLangGen.registerDamageTypes(translationBuilder);
+
+        // KEYBINDS
+        translationBuilder.add(
+            "category.aortic",
+            "Aortic"
+        );
+        translationBuilder.add(
+            "key.aortic.trigger",
+            "Use Blood Ability"
+        );
+
+        // SUBTITLES
+        translationBuilder.add(
+            "subtitles.aortic.item.harvest",
+            "Blood is harvested"
+        );
+
+        // BLOOD FEEDBACK
+        translationBuilder.add(
+            "blood.aortic.enderman.set_pos",
+            "Set waypoint to %s %s %s" // X, Y, Z of new pos
+        );
+
+        // COMMANDS
+        translationBuilder.add(
+            "command.blood.get.feedback",
+            "Current blood type is %s" // Current blood in source
+        );
+        translationBuilder.add(
+            "command.blood.set.feedback",
+            "Set blood type to %s" // Blood type to set to
+        );
     }
 
     private static void registerDamageTypes(TranslationBuilder translationBuilder) {
@@ -55,6 +88,6 @@ public class AorticLangGen extends FabricLanguageProvider {
     }
 
     public String getName() {
-        return "Aortic EN_US";
+        return "Aortic Lang";
     }
 }

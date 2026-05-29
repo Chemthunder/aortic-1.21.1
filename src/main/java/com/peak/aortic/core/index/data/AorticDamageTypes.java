@@ -11,7 +11,18 @@ import net.minecraft.registry.RegistryKey;
 public interface AorticDamageTypes {
     DamageTypeRegistry DAMAGE_TYPES = new DamageTypeRegistry(Aortic.MOD_ID);
 
-    RegistryKey<DamageType> HARVEST = DAMAGE_TYPES.register("harvest", 2.0F);
-    RegistryKey<DamageType> HYDROPHOBIA = DAMAGE_TYPES.register("hydrophobia", 1.0F);
-    RegistryKey<DamageType> DETONATION = DAMAGE_TYPES.register("detonation", 0.0F);
+    RegistryKey<DamageType> HARVEST = DAMAGE_TYPES.register(
+        "harvest",
+        2.0F
+    );
+
+    RegistryKey<DamageType> HYDROPHOBIA = DAMAGE_TYPES.register(
+        "hydrophobia",
+        1.0F
+    );
+
+    RegistryKey<DamageType> DETONATION = DAMAGE_TYPES.register(
+        "detonation",
+        0.0F
+    );
 }

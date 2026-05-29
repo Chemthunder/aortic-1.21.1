@@ -6,9 +6,16 @@ import net.minecraft.world.World;
 
 /**
  * @author Chemthunder
+ * @author AcoYT
  */
 public class BloodUtils {
 
+    /**
+     * Checks if a BlockPos is exposed to the sky.
+     * @param pos The pos to check
+     * @param world The world to check with
+     * @author AcoYT
+     */
     public static boolean isExposedToSky(BlockPos pos, World world) {
         boolean cannotSeeSky = false;
         for (int i = pos.getY(); i < world.getTopY(); i++) {
@@ -22,6 +29,12 @@ public class BloodUtils {
         return !cannotSeeSky;
     }
 
+    /**
+     * Checks if an entity is exposed to the sky.
+     * @param entity The entity to check
+     * @param world The world to check with
+     * @author AcoYT
+     */
     public static boolean isExposedToSky(Entity entity, World world) {
         boolean cannotSeeSky = false;
         for (int i = entity.getBlockPos().getY(); i < world.getTopY(); i++) {

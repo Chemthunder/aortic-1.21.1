@@ -31,8 +31,14 @@ public class PlayerBloodComponent implements AutoSyncedComponent, CommonTickingC
 
     public void tick() {
         if (this.currentBlood != null) {
-            currentBlood.passive(player.getWorld(), player);
-            currentBlood.altPassive(player.getWorld(), player);
+            currentBlood.passive(
+                player.getWorld(),
+                player
+            );
+            currentBlood.altPassive(
+                player.getWorld(),
+                player
+            );
         }
     }
 

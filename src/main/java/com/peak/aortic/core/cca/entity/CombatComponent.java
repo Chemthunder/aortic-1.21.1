@@ -43,7 +43,10 @@ public class CombatComponent implements AutoSyncedComponent, CommonTickingCompon
     }
 
     public void writeToNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup wrapperLookup) {
-        nbt.putInt("CombatTicks", this.combatTicks);
+        nbt.putInt(
+            "CombatTicks",
+            this.combatTicks
+        );
     }
 
     public int getCombatTicks() {

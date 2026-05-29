@@ -16,9 +16,20 @@ public interface AorticBloodTypes {
 
     Blood PLAYER = TYPES.register("player", new Blood(EntityType.PLAYER));
 
-    Blood PIG = TYPES.register("pig", new PigBlood());
-    Blood ENDERMAN = TYPES.register("enderman", new EndermanBlood());
-    Blood CREEPER = TYPES.register("creeper", new CreeperBlood());
+    Blood PIG = TYPES.register(
+        "pig",
+        new PigBlood()
+    );
+
+    Blood ENDERMAN = TYPES.register(
+        "enderman",
+        new EndermanBlood()
+    );
+
+    Blood CREEPER = TYPES.register(
+        "creeper",
+        new CreeperBlood()
+    );
 
     static void init() {}
 }

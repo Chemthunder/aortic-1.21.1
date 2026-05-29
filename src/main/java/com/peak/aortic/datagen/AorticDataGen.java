@@ -27,7 +27,7 @@ public class AorticDataGen implements DataGeneratorEntrypoint {
 
     public void onInitializeDataGenerator(FabricDataGenerator fdg) {
         var pack = fdg.createPack();
-        pack.addProvider(Dyn::new);
+        pack.addProvider(DynamicInitializer::new);
 
         pack.addProvider(AorticLangGen::new);
         pack.addProvider(AorticModelGen::new);
@@ -40,13 +40,19 @@ public class AorticDataGen implements DataGeneratorEntrypoint {
         DATA.buildRegistries(registryBuilder);
     }
 
-    public static final class Dyn extends FabricDynamicRegistryProvider {
-        public Dyn(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-            super(output, registriesFuture);
+    public static final class DynamicInitializer extends FabricDynamicRegistryProvider {
+        public DynamicInitializer(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+            super(
+                output,
+                registriesFuture
+            );
         }
 
         protected void configure(RegistryWrapper.WrapperLookup registries, Entries entries) {
-            DATA.loadConfigurations(registries, entries);
+            DATA.loadConfigurations(
+                registries,
+                entries
+            );
         }
 
         public String getName() {

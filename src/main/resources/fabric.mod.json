@@ -8,10 +8,9 @@
     "Chemthunder"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/Chemthunder/aortic-1.21.1"
   },
-  "license": "CC0-1.0",
+  "license": "ARR",
   "icon": "assets/aortic/icon.png",
   "environment": "*",
   "entrypoints": {
@@ -35,7 +34,8 @@
     "fabricloader": ">=0.15.11",
     "minecraft": "~1.21.1",
     "java": ">=21",
-    "fabric-api": "*"
+    "fabric-api": "*",
+    "acornlib": "*"
   },
 
   "custom": {

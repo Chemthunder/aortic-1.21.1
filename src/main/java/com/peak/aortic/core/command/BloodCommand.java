@@ -25,7 +25,20 @@ public class BloodCommand implements CommandRegistrationCallback {
                     if (player != null) {
                         PlayerBloodComponent bloodComponent = PlayerBloodComponent.KEY.get(player);
 
-                        bloodComponent.setCurrentBlood(BloodArgumentType.getBloodArgument(context, "bloodType").getEvent());
+                        bloodComponent.setCurrentBlood(
+                            BloodArgumentType.getBloodArgument(
+                                context,
+                                "bloodType"
+                            ).getEvent()
+                        );
+
+                        context.getSource().sendFeedback(() -> 
+                            Text.translatable(
+                                "command.blood.set.feedback",
+                                bloodComponent.getCurrentBlood().getId()
+                            ),
+                            false
+                        );
                     }
                     return Command.SINGLE_SUCCESS;
                 })))
@@ -35,7 +48,13 @@ public class BloodCommand implements CommandRegistrationCallback {
                     if (player != null) {
                         PlayerBloodComponent bloodComponent = PlayerBloodComponent.KEY.get(player);
 
-                        context.getSource().sendFeedback(() -> Text.literal("Current blood type is: " + bloodComponent.getCurrentBlood().getId()), false);
+                        context.getSource().sendFeedback(() -> 
+                            Text.translatable(
+                                "command.blood.get.feedback",
+                                bloodComponent.getCurrentBlood().getId()
+                            ),
+                            false
+                        );
                     }
 
                     return Command.SINGLE_SUCCESS;

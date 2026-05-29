@@ -15,12 +15,17 @@ import java.util.concurrent.CompletableFuture;
  */
 public class AorticSoundsGen extends ModdedSoundsProvider {
     public AorticSoundsGen(DataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-        super(output, registriesFuture);
+        super(
+            output,
+            registriesFuture
+        );
     }
 
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup, SoundExporter soundExporter) {
-        soundExporter.add(AorticSoundEvents.ITEM_HARVEST, sound(Aortic.id("item/harvest"))
-                .subtitle("subtitles.aortic.item.harvest")
+        soundExporter.add(
+            AorticSoundEvents.ITEM_HARVEST,
+            sound(Aortic.id("item/harvest"))
+            .subtitle("subtitles.aortic.item.harvest")
         );
     }
 
@@ -29,6 +34,11 @@ public class AorticSoundsGen extends ModdedSoundsProvider {
     }
 
     private static SoundTypeBuilder sound(Identifier id) {
-        return SoundTypeBuilder.of().sound(SoundTypeBuilder.EntryBuilder.create(SoundTypeBuilder.RegistrationType.FILE, id));
+        return SoundTypeBuilder.of().sound(
+            SoundTypeBuilder.EntryBuilder.create(
+                SoundTypeBuilder.RegistrationType.FILE,
+                id
+            )
+        );
     }
 }

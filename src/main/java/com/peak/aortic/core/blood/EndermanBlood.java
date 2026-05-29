@@ -58,7 +58,10 @@ public class EndermanBlood extends Blood {
     public void passive(World world, PlayerEntity source) {
         if (source.isTouchingWaterOrRain()) {
             if (source.canTakeDamage()) {
-                source.damage(source.getDamageSources().create(AorticDamageTypes.HYDROPHOBIA), 2.0F);
+                source.damage(
+                    source.getDamageSources().create(AorticDamageTypes.HYDROPHOBIA),
+                    2.0F
+                );
             }
         }
     }

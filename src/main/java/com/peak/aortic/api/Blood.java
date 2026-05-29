@@ -38,8 +38,6 @@ public class Blood {
 
         for (Blood blood : AorticRegistries.BLOOD) {
             if (blood.getType().equals(entity.getType())) {
-                Aortic.LOGGER.info(entity.getType().getTranslationKey());
-                Aortic.LOGGER.info(blood.getId().toString());
                 toApply = blood;
                 break;
             }

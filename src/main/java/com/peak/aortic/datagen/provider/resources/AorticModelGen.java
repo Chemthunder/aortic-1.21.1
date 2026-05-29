@@ -18,8 +18,15 @@ public class AorticModelGen extends FabricModelProvider {
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {}
 
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        itemModelGenerator.register(AorticItems.KNIFE, Models.HANDHELD);
-        itemModelGenerator.register(AorticItems.KNIFE, "_bloody", Models.HANDHELD);
+        itemModelGenerator.register(
+            AorticItems.KNIFE,
+            Models.HANDHELD
+        );
+        itemModelGenerator.register(
+            AorticItems.KNIFE,
+            "_bloody",
+            Models.HANDHELD
+        );
     }
 
     public String getName() {

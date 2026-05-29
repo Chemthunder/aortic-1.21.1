@@ -23,6 +23,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
 /**
+ * @author Chemthunder
  * @author AcoYT
  */
 public class BloodStringReader {
@@ -48,7 +49,10 @@ public class BloodStringReader {
             }
         });
 
-        RegistryEntry<Blood> registryEntry = Objects.requireNonNull(mutableObject.getValue(), "Parser gave no item");
+        RegistryEntry<Blood> registryEntry = Objects.requireNonNull(
+            mutableObject.getValue(),
+            "Parser gave no item"
+        );
         return new BloodStringReader.BloodResult(registryEntry);
     }
 
@@ -56,7 +60,10 @@ public class BloodStringReader {
         int i = reader.getCursor();
 
         try {
-            new BloodStringReader.Reader(reader, callbacks).read();
+            new BloodStringReader.Reader(
+                reader,
+                callbacks
+            ).read();
         } catch (CommandSyntaxException var5) {
             reader.setCursor(i);
             throw var5;
@@ -67,13 +74,20 @@ public class BloodStringReader {
         StringReader stringReader = new StringReader(builder.getInput());
         stringReader.setCursor(builder.getStart());
         BloodStringReader.SuggestionCallbacks suggestionCallbacks = new BloodStringReader.SuggestionCallbacks();
-        BloodStringReader.Reader reader = new BloodStringReader.Reader(stringReader, suggestionCallbacks);
+        
+        BloodStringReader.Reader reader = new BloodStringReader.Reader(
+            stringReader,
+            suggestionCallbacks
+        );
 
         try {
             reader.read();
         } catch (CommandSyntaxException ignored) {}
 
-        return suggestionCallbacks.getSuggestions(builder, stringReader);
+        return suggestionCallbacks.getSuggestions(
+            builder,
+            stringReader
+        );
     }
 
     public interface Callbacks {
@@ -106,14 +120,25 @@ public class BloodStringReader {
             int i = this.reader.getCursor();
             Identifier identifier = Identifier.fromCommandInput(this.reader);
 
-            this.callbacks.onBlood(BloodStringReader.this.eventRegistry.getOptional(RegistryKey.of(AorticRegistries.BLOOD_KEY, identifier)).orElseThrow(() -> {
+            this.callbacks.onBlood(BloodStringReader.this.eventRegistry.getOptional(RegistryKey.of(
+                AorticRegistries.BLOOD_KEY,
+                identifier
+            )).orElseThrow(() -> {
                 this.reader.setCursor(i);
-                return BloodStringReader.INVALID_EVENT_ID_EXCEPTION.createWithContext(this.reader, identifier);
+                return BloodStringReader.INVALID_EVENT_ID_EXCEPTION.createWithContext(
+                    this.reader,
+                    identifier
+                );
             }));
         }
 
         private CompletableFuture<Suggestions> suggestBloods(SuggestionsBuilder builder) {
-            return CommandSource.suggestIdentifiers(BloodStringReader.this.eventRegistry.streamKeys().map(RegistryKey::getValue), builder);
+            return CommandSource.suggestIdentifiers(
+                BloodStringReader.this.eventRegistry.streamKeys().map(
+                    RegistryKey::getValue
+                ),
+                builder
+            );
         }
     }
 
@@ -125,7 +150,11 @@ public class BloodStringReader {
         }
 
         public CompletableFuture<Suggestions> getSuggestions(SuggestionsBuilder builder, StringReader reader) {
-            return this.suggester.apply(builder.createOffset(reader.getCursor()));
+            return this.suggester.apply(
+                builder.createOffset(
+                    reader.getCursor()
+                )
+            );
         }
     }
 }
