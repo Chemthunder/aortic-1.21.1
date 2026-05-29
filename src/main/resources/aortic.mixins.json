@@ -3,7 +3,8 @@
   "package": "com.peak.aortic.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "ArgumentTypesMixin"
+    "ArgumentTypesMixin",
+    "LivingEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

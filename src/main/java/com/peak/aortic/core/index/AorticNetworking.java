@@ -3,7 +3,6 @@ package com.peak.aortic.core.index;
 import com.peak.aortic.core.networking.c2s.TriggerAbilityPayload;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 

@@ -1,5 +1,21 @@
 {
-  "blood.aortic.base": "Base Blood",
+  "blood.aortic.creeper": "Creeper Blood",
+  "blood.aortic.enderman": "Enderman Blood",
+  "blood.aortic.enderman.set_pos": "Set waypoint to %s %s %s",
   "blood.aortic.pig": "Pig Blood",
-  "item.aortic.knife": "Knife"
+  "blood.aortic.player": "Player Blood",
+  "category.aortic": "Aortic",
+  "death.attack.detonation": "%1$s self-destructed",
+  "death.attack.detonation.item": "%1$s got caught in %2$s's radius who was wielding %3$s",
+  "death.attack.detonation.player": "%1$s got caught in %2$s's radius",
+  "death.attack.harvest": "%1$s couldn't take the heat",
+  "death.attack.harvest.item": "%1$s bled out at the hands of %2$s, wielding %3$s",
+  "death.attack.harvest.player": "%1$s bled out at the hands of %2$s",
+  "death.attack.hydrophobia": "%1$s had an aversion to liquids",
+  "death.attack.hydrophobia.item": "%1$s over-hydrated whilst fighting %2$s, wielding %3$s",
+  "death.attack.hydrophobia.player": "%1$s over-hydrated whilst fighting %2$s",
+  "item.aortic.knife": "Knife",
+  "item.aortic.knife.refuse.bloodied": "This Knife is bloodied, wash it to use it!",
+  "key.aortic.trigger": "Use Blood Ability",
+  "subtitles.aortic.item.harvest": "Blood is harvested"
 }

@@ -2,7 +2,6 @@ package com.peak.aortic.core;
 
 import com.peak.aortic.core.command.BloodCommand;
 import com.peak.aortic.core.index.*;
-import com.peak.aortic.core.keybinds.AorticKeybinds;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.util.Identifier;
@@ -21,13 +20,14 @@ public class Aortic implements ModInitializer {
         AorticItems.init();
         AorticRegistries.init();
         AorticComponentTypes.init();
+        AorticSoundEvents.init();
+
+        AorticGameRules.init();
 
         CommandRegistrationCallback.EVENT.register(new BloodCommand());
 
         AorticNetworking.init();
         AorticNetworking.registerC2SPackets();
-
-        AorticKeybinds.bootstrap();
 
 		LOGGER.info("Aortic has been initialized successfully!");
 	}

@@ -1,11 +1,11 @@
 package com.peak.aortic.core.keybinds;
 
 import com.peak.aortic.core.Aortic;
+import com.peak.aortic.core.networking.c2s.TriggerAbilityPayload;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
-import org.ladysnake.cca.api.v3.component.tick.ClientTickingComponent;
 import org.lwjgl.glfw.GLFW;
 
 /**
@@ -29,7 +29,7 @@ public class AorticKeybinds {
         ClientTickEvents.START_CLIENT_TICK.register(minecraftClient -> {
             if (minecraftClient.player != null && trigger.isPressed()) {
                 try {
-
+                    TriggerAbilityPayload.send();
                 } catch (Exception e) {
                     Aortic.LOGGER.error("Failed to send TriggerAbilityPayload");
                 }

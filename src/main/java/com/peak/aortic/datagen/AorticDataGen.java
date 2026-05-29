@@ -1,7 +1,11 @@
 package com.peak.aortic.datagen;
 
 import com.peak.aortic.core.Aortic;
+import com.peak.aortic.core.index.data.AorticDamageTypes;
 import com.peak.aortic.datagen.provider.resources.AorticLangGen;
+import com.peak.aortic.datagen.provider.resources.AorticModelGen;
+import com.peak.aortic.datagen.provider.resources.AorticSoundsGen;
+import com.peak.aortic.datagen.provider.tag.AorticDamageTypeTagGen;
 import com.peak.omnia.api.registration.DataInitializer;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
@@ -18,14 +22,18 @@ import java.util.concurrent.CompletableFuture;
  */
 public class AorticDataGen implements DataGeneratorEntrypoint {
 	public static final DataInitializer DATA = new DataInitializer(Aortic.MOD_ID, Arrays.asList(
-
+            AorticDamageTypes.DAMAGE_TYPES
     ));
 
     public void onInitializeDataGenerator(FabricDataGenerator fdg) {
         var pack = fdg.createPack();
-
         pack.addProvider(Dyn::new);
+
         pack.addProvider(AorticLangGen::new);
+        pack.addProvider(AorticModelGen::new);
+        pack.addProvider(AorticSoundsGen::new);
+
+        pack.addProvider(AorticDamageTypeTagGen::new);
 	}
 
     public void buildRegistry(RegistryBuilder registryBuilder) {

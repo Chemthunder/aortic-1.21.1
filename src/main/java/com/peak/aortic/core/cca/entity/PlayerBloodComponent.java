@@ -3,7 +3,6 @@ package com.peak.aortic.core.cca.entity;
 import com.peak.aortic.api.Blood;
 import com.peak.aortic.core.Aortic;
 import com.peak.aortic.core.index.AorticBloodTypes;
-import com.peak.aortic.core.index.AorticItems;
 import com.peak.aortic.core.index.AorticRegistries;
 import net.acoyt.acornlib.api.util.MiscUtils;
 import net.minecraft.entity.player.PlayerEntity;
@@ -24,15 +23,17 @@ public class PlayerBloodComponent implements AutoSyncedComponent, CommonTickingC
     );
     private final PlayerEntity player;
 
-    private Blood currentBlood = AorticBloodTypes.BASE;
+    private Blood currentBlood = AorticBloodTypes.PLAYER;
 
     public PlayerBloodComponent(PlayerEntity player) {
         this.player = player;
     }
 
     public void tick() {
-        currentBlood.passive(player.getWorld(), player);
-        currentBlood.altPassive(player.getWorld(), player);
+        if (this.currentBlood != null) {
+            currentBlood.passive(player.getWorld(), player);
+            currentBlood.altPassive(player.getWorld(), player);
+        }
     }
 
     public void sync() {
@@ -47,7 +48,7 @@ public class PlayerBloodComponent implements AutoSyncedComponent, CommonTickingC
                 )
             );
         } else {
-            this.currentBlood = AorticBloodTypes.BASE;
+            this.currentBlood = AorticBloodTypes.PLAYER;
         }
     }
 
@@ -56,7 +57,7 @@ public class PlayerBloodComponent implements AutoSyncedComponent, CommonTickingC
             Identifier identifier = AorticRegistries.BLOOD.getId(this.currentBlood);
             nbt.putString(
                 "Blood",
-                identifier != null ? identifier.toString() : AorticBloodTypes.BASE.getId().toString()
+                identifier != null ? identifier.toString() : AorticBloodTypes.PLAYER.getId().toString()
             );
         }
     }

@@ -3,9 +3,9 @@
   "id": "aortic",
   "version": "${version}",
   "name": "Aortic",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "\"So grab a plate, have a taste...\"",
   "authors": [
-    "Me!"
+    "Chemthunder"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -17,6 +17,9 @@
   "entrypoints": {
     "main": [
       "com.peak.aortic.core.Aortic"
+    ],
+    "client": [
+      "com.peak.aortic.core.AorticClient"
     ],
     "fabric-datagen": [
       "com.peak.aortic.datagen.AorticDataGen"
@@ -37,7 +40,9 @@
 
   "custom": {
     "cardinal-components": [
-      "aortic:player_blood"
+      "aortic:player_blood",
+      "aortic:ender",
+      "aortic:combat"
     ]
   }
 }

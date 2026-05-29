@@ -15,6 +15,6 @@ public class PigBlood extends Blood {
     }
 
     public void passive(World world, PlayerEntity source) {
-        source.sendMessage(Text.of("bleh!"), true);
+      //  source.sendMessage(Text.of("bleh!"), true);
     }
 }
