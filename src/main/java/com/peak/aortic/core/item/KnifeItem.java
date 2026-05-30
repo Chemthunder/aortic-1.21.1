@@ -1,12 +1,9 @@
 package com.peak.aortic.core.item;
 
 import com.peak.aortic.api.Blood;
-import com.peak.aortic.core.Aortic;
 import com.peak.aortic.core.cca.entity.PlayerBloodComponent;
 import com.peak.aortic.core.index.AorticSoundEvents;
 import com.peak.aortic.core.index.data.AorticDamageTypes;
-import net.acoyt.acornlib.api.item.ModelVaryingItem;
-import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.entity.LivingEntity;
@@ -19,12 +16,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author Chemthunder

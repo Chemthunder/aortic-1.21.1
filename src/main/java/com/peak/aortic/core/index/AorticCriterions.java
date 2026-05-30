@@ -1,8 +1,6 @@
 package com.peak.aortic.core.index;
 
 import com.peak.aortic.core.Aortic;
-import net.acoyt.acornlib.impl.AcornLib;
-import net.acoyt.acornlib.impl.index.AcornCriterions;
 import net.minecraft.advancement.criterion.Criterion;
 import net.minecraft.advancement.criterion.TickCriterion;
 import net.minecraft.registry.Registries;
