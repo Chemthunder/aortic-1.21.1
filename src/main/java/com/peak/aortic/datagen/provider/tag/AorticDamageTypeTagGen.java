@@ -25,10 +25,18 @@ public class AorticDamageTypeTagGen extends FabricTagProvider<DamageType> {
     protected void configure(RegistryWrapper.WrapperLookup lookup) {
         this.getOrCreateTagBuilder(DamageTypeTags.NO_KNOCKBACK)
                 .add(AorticDamageTypes.HARVEST)
+                .add(AorticDamageTypes.HEMATOLIC)
+                .add(AorticDamageTypes.TOXIN)
                 .setReplace(false);
 
         this.getOrCreateTagBuilder(DamageTypeTags.BYPASSES_ARMOR)
                 .add(AorticDamageTypes.HYDROPHOBIA)
+                .add(AorticDamageTypes.TOXIN)
+                .setReplace(false);
+
+        this.getOrCreateTagBuilder(DamageTypeTags.BYPASSES_SHIELD)
+                .add(AorticDamageTypes.HYDROPHOBIA)
+                .add(AorticDamageTypes.TOXIN)
                 .setReplace(false);
     }
 

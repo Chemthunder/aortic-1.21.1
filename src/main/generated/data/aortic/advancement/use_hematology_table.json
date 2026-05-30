@@ -1,0 +1,26 @@
+{
+  "parent": "aortic:blood_harvest",
+  "criteria": {
+    "use": {
+      "trigger": "aortic:use_hematology_table"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.aortic.use_hematology_table.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "aortic:hematology_table"
+    },
+    "title": {
+      "translate": "advancements.aortic.use_hematology_table.title"
+    }
+  },
+  "requirements": [
+    [
+      "use"
+    ]
+  ]
+}

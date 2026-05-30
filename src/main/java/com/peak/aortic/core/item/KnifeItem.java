@@ -3,13 +3,20 @@ package com.peak.aortic.core.item;
 import com.peak.aortic.api.Blood;
 import com.peak.aortic.core.Aortic;
 import com.peak.aortic.core.cca.entity.PlayerBloodComponent;
+import com.peak.aortic.core.index.AorticSoundEvents;
 import com.peak.aortic.core.index.data.AorticDamageTypes;
 import net.acoyt.acornlib.api.item.ModelVaryingItem;
 import net.minecraft.client.render.model.json.ModelTransformationMode;
+import net.minecraft.component.type.AttributeModifierSlot;
+import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
@@ -22,7 +29,7 @@ import java.util.List;
 /**
  * @author Chemthunder
  */
-public class KnifeItem extends Item implements ModelVaryingItem {
+public class KnifeItem extends Item {
     public KnifeItem(Settings settings) {
         super(settings);
     }
@@ -48,30 +55,53 @@ public class KnifeItem extends Item implements ModelVaryingItem {
 
                 user.spawnSweepAttackParticles();
 
-                if (user.getWorld().isClient()) {
-                    user.swingHand(hand);
-                }
-
                 if (!user.isCreative()) {
                     user.getItemCooldownManager().set(
                         this,
                         60
                     );
                 }
+
+                world.playSound(
+                        user,
+                        user.getBlockPos(),
+                        AorticSoundEvents.ITEM_HARVEST,
+                        SoundCategory.PLAYERS,
+                        1,
+                        1
+                );
+            } else {
+                user.sendMessage(Text.translatable("item.aortic.knife.refuse"), true);
+            }
+
+            if (user.getWorld().isClient()) {
+                user.swingHand(hand);
             }
         }
 
         return super.useOnEntity(stack, user, entity, hand);
     }
 
-    public Identifier getModel(ModelTransformationMode renderMode, ItemStack stack, @Nullable LivingEntity entity) {
-        return Aortic.id("knife");
-    }
-
-    public List<Identifier> getModelsToLoad() {
-        return Arrays.asList(
-                Aortic.id("knife"),
-                Aortic.id("knife_bloody")
-        );
+    public static AttributeModifiersComponent createAttributes() {
+        return AttributeModifiersComponent.builder()
+                .add(
+                        EntityAttributes.GENERIC_ATTACK_DAMAGE,
+                        new EntityAttributeModifier(
+                                BASE_ATTACK_DAMAGE_MODIFIER_ID,
+                                3.0F,
+                                EntityAttributeModifier.Operation.ADD_VALUE
+                        ),
+                        AttributeModifierSlot.MAINHAND
+                )
+                .add(
+                        EntityAttributes.GENERIC_ATTACK_SPEED,
+                        new EntityAttributeModifier(
+                                BASE_ATTACK_SPEED_MODIFIER_ID,
+                                -2.2F,
+                                EntityAttributeModifier.Operation.ADD_VALUE
+                        ),
+                        AttributeModifierSlot.MAINHAND
+                )
+                .build();
     }
 }

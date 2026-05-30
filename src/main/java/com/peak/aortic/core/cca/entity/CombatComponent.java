@@ -5,6 +5,7 @@ import net.acoyt.acornlib.api.util.MiscUtils;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.text.Text;
 import org.ladysnake.cca.api.v3.component.ComponentKey;
 import org.ladysnake.cca.api.v3.component.sync.AutoSyncedComponent;
 import org.ladysnake.cca.api.v3.component.tick.CommonTickingComponent;
@@ -30,6 +31,7 @@ public class CombatComponent implements AutoSyncedComponent, CommonTickingCompon
             this.combatTicks--;
             if (this.combatTicks == 0) {
                 this.sync();
+                this.player.sendMessage(Text.literal("you're cool fr"), true);
             }
         }
     }

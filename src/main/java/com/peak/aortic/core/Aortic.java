@@ -16,16 +16,21 @@ public class Aortic implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
 	public void onInitialize() {
+        /* Initialization */
         AorticBloodTypes.init();
         AorticItems.init();
         AorticRegistries.init();
         AorticComponentTypes.init();
         AorticSoundEvents.init();
-
+        AorticBlocks.init();
         AorticGameRules.init();
+        AorticStatusEffects.init();
+        AorticCriterions.init();
 
+        /* Events */
         CommandRegistrationCallback.EVENT.register(new BloodCommand());
 
+        /* Networking */
         AorticNetworking.init();
         AorticNetworking.registerC2SPackets();
 

@@ -1,6 +1,6 @@
 package com.peak.aortic.api;
 
-import com.peak.aortic.core.Aortic;
+import com.peak.aortic.core.index.AorticBloodTypes;
 import com.peak.aortic.core.index.AorticRegistries;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -21,9 +21,11 @@ public class Blood {
 
     public void trigger(World world, PlayerEntity source) {}
 
-    public void passive(World world, PlayerEntity source) {}
+    public int getTriggerCooldown(PlayerEntity source) {
+        return 0;
+    }
 
-    public void altPassive(World world, PlayerEntity source) {}
+    public void passive(World world, PlayerEntity source) {}
 
     public Identifier getId() {
         return AorticRegistries.BLOOD.getId(this);
@@ -43,5 +45,13 @@ public class Blood {
             }
         }
         return toApply;
+    }
+
+    public boolean isSpliced() {
+        return this != AorticBloodTypes.PLAYER;
+    }
+
+    public String createTranslationKey() {
+        return "blood." + getId().getNamespace() + "." + getId().getPath();
     }
 }

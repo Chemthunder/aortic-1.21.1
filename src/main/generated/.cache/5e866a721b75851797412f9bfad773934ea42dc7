@@ -1,4 +1,6 @@
-// 1.21.1	2026-05-29T18:59:14.1880337	Aortic/Aortic Registries
+// 1.21.1	2026-05-29T22:26:06.7389984	Aortic/Aortic Registries
 a06b98279414205d65eb93c72b9a854528903dc4 data\aortic\damage_type\detonation.json
+e62b2b8e640937afbbe335e925d52cde1a85880d data\aortic\damage_type\hematolic.json
 5a95207e2104e0358120af20fc9167e5c61d935d data\aortic\damage_type\harvest.json
+af960f7c1cb6aba956cd91fda85638a85b32200e data\aortic\damage_type\toxin.json
 f8f8b0d77a4a2682e3512489c6278f460b3dc0f0 data\aortic\damage_type\hydrophobia.json

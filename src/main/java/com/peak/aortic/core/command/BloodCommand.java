@@ -32,12 +32,11 @@ public class BloodCommand implements CommandRegistrationCallback {
                             ).getEvent()
                         );
 
-                        context.getSource().sendFeedback(() -> 
-                            Text.translatable(
-                                "command.blood.set.feedback",
-                                bloodComponent.getCurrentBlood().getId()
-                            ),
-                            false
+                        player.sendMessage(Text.translatable(
+                                        "command.blood.set.feedback",
+                                        bloodComponent.getCurrentBlood().getId().toString()
+                                ),
+                                false
                         );
                     }
                     return Command.SINGLE_SUCCESS;
@@ -48,10 +47,9 @@ public class BloodCommand implements CommandRegistrationCallback {
                     if (player != null) {
                         PlayerBloodComponent bloodComponent = PlayerBloodComponent.KEY.get(player);
 
-                        context.getSource().sendFeedback(() -> 
-                            Text.translatable(
+                        player.sendMessage(Text.translatable(
                                 "command.blood.get.feedback",
-                                bloodComponent.getCurrentBlood().getId()
+                                bloodComponent.getCurrentBlood().getId().toString()
                             ),
                             false
                         );

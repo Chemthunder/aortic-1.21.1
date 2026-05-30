@@ -1,3 +1,4 @@
-// 1.21.1	2026-05-29T18:59:14.1870337	Aortic/Aortic Damage Type Tags
-ee7325efbf4317216ce46ceab046c41b721ba7bc data\minecraft\tags\damage_type\bypasses_armor.json
-0ce852c83dcd15631a8f56835b79aaace0a22695 data\minecraft\tags\damage_type\no_knockback.json
+// 1.21.1	2026-05-29T22:26:06.7379983	Aortic/Aortic Damage Type Tags
+aab69e6dc32a14f9b7c980e6b7cefe09743c7b2c data\minecraft\tags\damage_type\bypasses_armor.json
+aab69e6dc32a14f9b7c980e6b7cefe09743c7b2c data\minecraft\tags\damage_type\bypasses_shield.json
+f5a402b3a5a512f88e3649f2c102203c633bc827 data\minecraft\tags\damage_type\no_knockback.json

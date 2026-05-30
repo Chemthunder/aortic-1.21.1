@@ -25,4 +25,14 @@ public interface AorticDamageTypes {
         "detonation",
         0.0F
     );
+
+    RegistryKey<DamageType> HEMATOLIC = DAMAGE_TYPES.register(
+            "hematolic",
+            5.0F
+    );
+
+    RegistryKey<DamageType> TOXIN = DAMAGE_TYPES.register(
+            "toxin",
+            2.1F
+    );
 }

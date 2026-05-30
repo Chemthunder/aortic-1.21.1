@@ -24,21 +24,27 @@ public class PlayerBloodComponent implements AutoSyncedComponent, CommonTickingC
     private final PlayerEntity player;
 
     private Blood currentBlood = AorticBloodTypes.PLAYER;
+    private int cooldownTicks = 0;
 
     public PlayerBloodComponent(PlayerEntity player) {
         this.player = player;
     }
 
     public void tick() {
-        if (this.currentBlood != null) {
-            currentBlood.passive(
-                player.getWorld(),
-                player
-            );
-            currentBlood.altPassive(
-                player.getWorld(),
-                player
-            );
+        if (this.cooldownTicks > 0) {
+            this.cooldownTicks--;
+            if (this.cooldownTicks == 0) {
+                this.sync();
+            }
+        }
+
+        if (this.cooldownTicks == 0) {
+            if (this.currentBlood != null) {
+                currentBlood.passive(
+                        player.getWorld(),
+                        player
+                );
+            }
         }
     }
 
@@ -56,6 +62,8 @@ public class PlayerBloodComponent implements AutoSyncedComponent, CommonTickingC
         } else {
             this.currentBlood = AorticBloodTypes.PLAYER;
         }
+
+        this.cooldownTicks = nbt.getInt("CooldownTicks");
     }
 
     public void writeToNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup wrapperLookup) {
@@ -66,6 +74,11 @@ public class PlayerBloodComponent implements AutoSyncedComponent, CommonTickingC
                 identifier != null ? identifier.toString() : AorticBloodTypes.PLAYER.getId().toString()
             );
         }
+
+        nbt.putInt(
+                "CooldownTicks",
+                this.cooldownTicks
+        );
     }
 
     public Blood getCurrentBlood() {
@@ -74,6 +87,15 @@ public class PlayerBloodComponent implements AutoSyncedComponent, CommonTickingC
 
     public void setCurrentBlood(Blood blood) {
         this.currentBlood = blood;
+        this.sync();
+    }
+
+    public int getCooldownTicks() {
+        return this.cooldownTicks;
+    }
+
+    public void setCooldownTicks(int cooldownTicks) {
+        this.cooldownTicks = cooldownTicks;
         this.sync();
     }
 }

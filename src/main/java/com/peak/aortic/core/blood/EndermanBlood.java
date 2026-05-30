@@ -6,8 +6,6 @@ import com.peak.aortic.core.cca.entity.sub.EnderComponent;
 import com.peak.aortic.core.index.data.AorticDamageTypes;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -34,22 +32,16 @@ public class EndermanBlood extends Blood {
             ), true);
         } else {
             if (!CombatComponent.KEY.get(source).isInCombat()) {
-                BlockPos pos = ender.getAsPosition();
-
-                source.teleport(
-                        pos.getX(),
-                        pos.getY(),
-                        pos.getZ(),
+                source.sendMessage(
+                        Text.translatable("blood.aortic.enderman.teleport"),
                         true
                 );
 
-                world.playSound(
-                        source,
-                        source.getBlockPos(),
-                        SoundEvents.ENTITY_ENDERMAN_TELEPORT,
-                        SoundCategory.PLAYERS,
-                        1,
-                        1
+                ender.teleport();
+            } else {
+                source.sendMessage(
+                        Text.translatable("blood.aortic.cannot_use.combat"),
+                        true
                 );
             }
         }

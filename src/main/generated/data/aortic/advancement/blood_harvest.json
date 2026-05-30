@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:adventure/root",
+  "criteria": {
+    "harvest": {
+      "trigger": "aortic:blood_harvest"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.aortic.blood_harvest.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "aortic:serrated_knife"
+    },
+    "title": {
+      "translate": "advancements.aortic.blood_harvest.title"
+    }
+  },
+  "requirements": [
+    [
+      "harvest"
+    ]
+  ]
+}

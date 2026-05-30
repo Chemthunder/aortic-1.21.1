@@ -2,6 +2,7 @@ package com.peak.aortic.datagen;
 
 import com.peak.aortic.core.Aortic;
 import com.peak.aortic.core.index.data.AorticDamageTypes;
+import com.peak.aortic.datagen.provider.AorticAdvancementGen;
 import com.peak.aortic.datagen.provider.resources.AorticLangGen;
 import com.peak.aortic.datagen.provider.resources.AorticModelGen;
 import com.peak.aortic.datagen.provider.resources.AorticSoundsGen;
@@ -34,6 +35,8 @@ public class AorticDataGen implements DataGeneratorEntrypoint {
         pack.addProvider(AorticSoundsGen::new);
 
         pack.addProvider(AorticDamageTypeTagGen::new);
+
+        pack.addProvider(AorticAdvancementGen::new);
 	}
 
     public void buildRegistry(RegistryBuilder registryBuilder) {

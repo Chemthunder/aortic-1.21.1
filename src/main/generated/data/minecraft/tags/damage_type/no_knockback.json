@@ -1,5 +1,7 @@
 {
   "values": [
-    "aortic:harvest"
+    "aortic:harvest",
+    "aortic:hematolic",
+    "aortic:toxin"
   ]
 }
